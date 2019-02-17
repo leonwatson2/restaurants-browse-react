@@ -1,7 +1,6 @@
 {
-  "homepage": "https://vlw0052.github.io/light-switch-react",
-  "proxy":"http://localhost:3001",
-  "name": "gtn-test",
+  "homepage": "https://vlw0052.github.io/restaurants-browse-react/",
+  "name": "restaurant-thing",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

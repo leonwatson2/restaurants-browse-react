@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/light-switch-react/precache-manifest.391b89550666354b4ea1d3cb7d166be6.js"
+  "/restaurants-browse-react/precache-manifest.747f71262e9e679e12055931c6b7ad15.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/light-switch-react/index.html", {
+workbox.routing.registerNavigationRoute("/restaurants-browse-react/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
