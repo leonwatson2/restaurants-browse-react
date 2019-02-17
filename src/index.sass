@@ -1,0 +1,143 @@
+
+
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$main-font: 'Avenir Next Demi Bold', sans-serif;
+$secondary-font: 'Avenir Next Regular', sans-serif;
+
+$primary-color: #43E895
+$primary-color-darken: #34B379
+
+*
+  box-sizing: border-box
+
+body 
+  background: rgb(70, 72, 75)
+  margin: 0
+
+.list-view
+  font-family: $main-font
+  color: #fff
+  width: 100%
+  display: grid
+  grid-template-columns: 1fr
+  margin-top: 60px
+  @media #{$medium-and-up}
+    grid-template-columns: 1fr 1fr
+
+.location-item 
+  min-height: 180px
+  position: relative
+  cursor: pointer
+  transition: outline .45s
+  &:focus
+    outline: solid $primary-color 1px
+    z-index: 20
+  &__image 
+    width: 100%
+    height: 100%
+    img
+      width: 100%
+      height: 100%
+  &__info
+    padding: 6px 12px
+    width: 100%
+    position: absolute
+    bottom: 0px
+    z-index: 20
+    background-image: url('./assets/cellGradientBackground@2x.png')
+    background-size: 100% 80px
+    background-position: left bottom
+    background-repeat: no-repeat
+  &__name,
+  &__category
+    font-family: $main-font
+    width: 100%
+  &__name
+    font-weight: bold
+    font-size: 16px
+  &__category
+    font-family: $secondary-font
+    font-size: 16px
+
+    
+.app-header
+  position: fixed
+  height: 60px
+  top: 0
+  width: 100%
+  font-family: $main-font
+  padding-top: 25px
+  padding-bottom: 15px
+  background: $primary-color
+  text-align: center
+  z-index: 50
+  &__title
+    color: #fff
+    font-size: 17px
+  &__mapicon,
+  &__back
+    position: absolute
+    height: 55%
+    right: 15px
+    bottom: 10px
+    img
+      max-height: 100%
+  &__back
+    transition: .35s
+    right: auto
+    left: 15px
+    transform: translateX(-300px)
+    width: 80px
+    text-align: left
+    .open &
+      transform: translateX(0px)
+
+  
+
+.location-details
+  background: #fff
+  width: 100%
+  position: fixed
+  top: 60px
+  left: 0
+  transform: translateX(-100%)
+  height: 100%
+  transition: .35s
+  z-index: -1
+  will-change: transform
+  &__details
+    padding: 16px
+  &__address,
+  &__phone
+    margin-bottom: 26px
+  @media #{$medium-and-up}
+    width: 50%
+
+  .open &
+    transform: translateX(0)
+    right: 0
+    z-index: 1000
+  .location-item__info
+    display: grid
+    align-content: center
+    grid-row-gap: 6px
+    height: 60px
+    color: #fff
+    padding: 6px 12px
+    width: 100%
+    position: relative
+    background: $primary-color-darken
+
+
+.map-container
+  height: 180px
+  width: 100%
+  #map
+    height: 100%
