@@ -29,9 +29,9 @@ export const GoogleMap = ({ location }) => {
             }
 
             map.setCenter(position)
-            console.log(markers)
          }
     }, [map, location])
+
     const getMarkerFor = (location) => {
         return markers.find(m => m.title === location.name)
     } 
