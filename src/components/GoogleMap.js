@@ -19,12 +19,22 @@ export const GoogleMap = ({ location }) => {
     useEffect(  () => {
          if(map && location.location){
             const position = getLocationLatLng(location.location)
-            const marker = new google.maps.Marker({ position, map, title: location.name, animation: google.maps.Animation.DROP })
-            setMarkers(new Set([ ...markers, marker ]))
+            let marker = getMarkerFor(location)
+            markers.map(m=>m.setMap(null))
+            if(marker){
+                marker.setMap(map)
+            }else {
+                marker = new google.maps.Marker({ position, map, title: location.name, animation: google.maps.Animation.DROP })
+                setMarkers([ ...markers, marker ])
+            }
+
             map.setCenter(position)
+            console.log(markers)
          }
     }, [map, location])
-
+    const getMarkerFor = (location) => {
+        return markers.find(m => m.title === location.name)
+    } 
     const getLocationLatLng = (location) => {
          return { lat: location.lat, lng: location.lng }
     }
